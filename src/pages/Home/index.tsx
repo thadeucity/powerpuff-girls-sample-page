@@ -11,8 +11,8 @@ export const Home: React.FC = () => {
   return (
     <div>
       <h1>Home</h1>
-      <Link to="/show/1234">
-        <strong>Go to Show Page</strong>
+      <Link to="/episodes">
+        <strong>Go to Episodes</strong>
       </Link>
     </div>
   );
