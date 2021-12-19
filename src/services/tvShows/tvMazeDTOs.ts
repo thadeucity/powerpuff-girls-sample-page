@@ -64,5 +64,5 @@ export interface EpisodeProps {
     self: {
       href: string;
     };
-  }
+  };
 }
