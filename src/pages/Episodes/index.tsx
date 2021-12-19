@@ -10,14 +10,16 @@ export const Episodes: React.FC = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getShowEpisodes(6771).then(([resData, resError]) => {
-      if (resError) setHasError(true);
-      setEpisodesList(resData || []);   
-    }).finally(() => setIsLoading(false));
+    getShowEpisodes(6771)
+      .then(([resData, resError]) => {
+        if (resError) setHasError(true);
+        setEpisodesList(resData || []);
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   if (hasError) {
-    return <div>Something went wrong ...</div>; 
+    return <div>Something went wrong ...</div>;
   }
 
   if (isLoading) {
@@ -38,4 +40,4 @@ export const Episodes: React.FC = () => {
       ))}
     </div>
   );
-}
+};

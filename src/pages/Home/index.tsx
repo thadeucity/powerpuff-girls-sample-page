@@ -10,14 +10,16 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getShow(6771).then(([resData, resError]) => {
-      if (resError) setHasError(true);
-      setShowData(resData || {} as ShowProps);   
-    }).finally(() => setIsLoading(false));
+    getShow(6771)
+      .then(([resData, resError]) => {
+        if (resError) setHasError(true);
+        setShowData(resData || ({} as ShowProps));
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   if (hasError) {
-    return <div>Something went wrong ...</div>; 
+    return <div>Something went wrong ...</div>;
   }
 
   if (isLoading) {
@@ -28,10 +30,10 @@ export const Home: React.FC = () => {
     <div>
       <h1>{showData?.name}</h1>
       <img src={showData?.image?.original} alt={`${showData?.name} Poster`} />
-      <p dangerouslySetInnerHTML={{__html: showData?.summary}}/>
+      <p dangerouslySetInnerHTML={{ __html: showData?.summary }} />
       <Link to="/episodes">
         <strong>Go to Episodes</strong>
       </Link>
     </div>
   );
-}
+};

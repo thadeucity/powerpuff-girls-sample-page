@@ -1,13 +1,15 @@
 import axios from 'axios';
 
-interface IoErrorProps  {
+interface IoErrorProps {
   status: number;
   message: string;
 }
 
 interface IoInstanceProps {
-  get: <T>(url: string, params?: Record<string, string>) => 
-    Promise<[T | null, IoErrorProps | null]>;
+  get: <T>(
+    url: string,
+    params?: Record<string, string>,
+  ) => Promise<[T | null, IoErrorProps | null]>;
 }
 
 export const createIoInstance = (baseUrl: string): IoInstanceProps => {
@@ -19,12 +21,16 @@ export const createIoInstance = (baseUrl: string): IoInstanceProps => {
   });
 
   return {
-    get: <T>(url: string, params?: Record<string, string>) => instance
-      .get<T>(url, { params })
-      .then<[T, null]>(res => [res.data, null])
-      .catch<[null, IoErrorProps]>(err => [null, {
-        status: err?.response?.status,
-        message: err?.response?.data?.message,
-      }]),
+    get: <T>(url: string, params?: Record<string, string>) =>
+      instance
+        .get<T>(url, { params })
+        .then<[T, null]>((res) => [res.data, null])
+        .catch<[null, IoErrorProps]>((err) => [
+          null,
+          {
+            status: err?.response?.status,
+            message: err?.response?.data?.message,
+          },
+        ]),
   };
-}
+};

@@ -10,4 +10,4 @@ export const Routes: React.FC = () => (
     <Route path="/" element={<Home />} />
     <Route path="/episodes" element={<Episodes />} />
   </RouterSwitch>
-)
+);

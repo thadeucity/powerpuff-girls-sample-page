@@ -3,15 +3,9 @@ import { EpisodeProps, ShowProps } from './tvMazeDTOs';
 
 const tvMazeApi = createIoInstance('https://api.tvmaze.com/');
 
-const getShow = async (id: number) => {
-  return tvMazeApi.get<ShowProps>(`/shows/${id}`); 
-}
+const getShow = async (id: number) => tvMazeApi.get<ShowProps>(`/shows/${id}`);
 
-const getShowEpisodes = async (id: number) => {
-  return tvMazeApi.get<EpisodeProps[]>(`/shows/${id}/episodes`); 
-}
+const getShowEpisodes = async (id: number) =>
+  tvMazeApi.get<EpisodeProps[]>(`/shows/${id}/episodes`);
 
-export {
-  getShow,
-  getShowEpisodes,
-}
+export { getShow, getShowEpisodes };
