@@ -2,7 +2,7 @@ import { createIoInstance } from '../../providers/ioProvider';
 
 const tvMazeApi = createIoInstance('https://api.tvmaze.com/');
 
-interface ShowProps {
+export interface ShowProps {
   id: number;
   url: string;
   name: string;
