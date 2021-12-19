@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getShow, ShowProps } from '../../services/tvShows/tvMazeService';
+import { ShowProps } from '../../services/tvShows/tvMazeDTOs';
+import { getShow } from '../../services/tvShows/tvMazeService';
 
 export const Home: React.FC = () => {
   const [showData, setShowData] = useState<ShowProps>({} as ShowProps);
