@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  :root {
+    --clr-primary: #f471b4;
+    --clr-secondary: #79d4d5;
+  }
+
   *, ::after, ::before {
     margin: 0;
     padding: 0;
@@ -11,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   body, input, button {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
+    background: var(--clr-secondary);
   }
 
   #root {
