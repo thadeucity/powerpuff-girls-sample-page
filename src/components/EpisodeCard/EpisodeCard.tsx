@@ -15,7 +15,10 @@ export const EpisodeCard: React.FC<EpisodeCardProps> = ({
 }) => (
   <CardContainer>
     <ImageContainer>
-      <img src={image?.original} alt={`${name}-s${season}e${number}`} />
+      <img src={image?.original} alt={`${name}-S${season}E${number}`} />
+      <span>
+        S{season}E{number}
+      </span>
     </ImageContainer>
     <EpisodeInfo>
       <h2>{name}</h2>
