@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { EpisodeCard } from '../../components/EpisodeCard/EpisodeCard';
 import { EpisodeProps } from '../../services/tvShows/tvMazeDTOs';
 import { getShowEpisodes } from '../../services/tvShows/tvMazeService';
-import { EpisodesContainer } from './Episodes.styles';
+import { EpisodesContainer, EpisodesPageContainer } from './Episodes.styles';
 
 export const Episodes: React.FC = () => {
   const [episodesList, setEpisodesList] = useState<EpisodeProps[]>([]);
@@ -29,16 +28,13 @@ export const Episodes: React.FC = () => {
   }
 
   return (
-    <div>
+    <EpisodesPageContainer>
       <h1>Episodes</h1>
-      <Link to="/">
-        <strong>Go to Home</strong>
-      </Link>
       <EpisodesContainer>
         {episodesList.map((episode) => (
           <EpisodeCard key={episode.id} episode={episode} />
         ))}
       </EpisodesContainer>
-    </div>
+    </EpisodesPageContainer>
   );
 };
