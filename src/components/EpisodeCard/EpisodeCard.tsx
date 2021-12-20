@@ -1,5 +1,6 @@
 import React from 'react';
 import { EpisodeProps } from '../../services/tvShows/tvMazeDTOs';
+import { Image } from '../Image/Image';
 import {
   CardContainer,
   EpisodeInfo,
@@ -15,7 +16,7 @@ export const EpisodeCard: React.FC<EpisodeCardProps> = ({
 }) => (
   <CardContainer>
     <ImageContainer>
-      <img src={image?.original} alt={`${name}-S${season}E${number}`} />
+      <Image src={image?.medium} alt={`${name}-S${season}E${number}`} />
       <span>
         S{season}E{number}
       </span>

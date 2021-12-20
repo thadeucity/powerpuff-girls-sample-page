@@ -34,7 +34,7 @@ export const ImageContainer = styled.div`
   padding-top: ${(9 / 16) * 100}%;
   position: relative;
 
-  background: #f2f2f2;
+  background: #f0f0f0;
 
   img {
     position: absolute;
@@ -62,6 +62,8 @@ export const ImageContainer = styled.div`
     font-size: 0.875rem;
     font-weight: bold;
     color: #fff;
+
+    z-index: 1;
   }
 `;
 
