@@ -13,8 +13,7 @@ export const ModalContainer = styled.div`
   position: relative;
 
   .modal__content {
-    width: 100%;
-    max-width: 400px;
+    width: auto;
     min-height: 200px;
     background: #fff;
     padding: 1rem;
