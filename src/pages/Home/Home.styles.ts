@@ -5,6 +5,8 @@ export const AboutShowSection = styled.section`
   grid-template-columns: 5fr 3fr;
   gap: 2rem;
 
+  color: var(--clr-text);
+
   h1 {
     margin-bottom: 2rem;
   }

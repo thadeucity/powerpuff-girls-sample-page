@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const EpisodesPageContainer = styled.div`
   h1 {
     margin-bottom: 1.25rem;
+    color: var(--clr-text);
   }
 
   ul {
@@ -22,7 +23,7 @@ export const EpisodesPageContainer = styled.div`
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       color: #fff;
-      background-color: var(--clr-text);
+      background-color: #333333;
       font-weight: bold;
 
       transition: background 0.2s ease-in-out;
