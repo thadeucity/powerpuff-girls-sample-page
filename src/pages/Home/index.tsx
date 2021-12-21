@@ -1,28 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { ShowProps } from '../../services/tvShows/tvMazeDTOs';
-import { getShow } from '../../services/tvShows/tvMazeService';
+import React from 'react';
+import { Constants } from '../../config/constants';
+import { useShow } from '../../services/tvShows/tvMazeService';
 import { AboutShowSection } from './Home.styles';
 
 export const Home: React.FC = () => {
-  const [showData, setShowData] = useState<ShowProps>({} as ShowProps);
-  const [hasError, setHasError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const { data, isFetching, isError } = useShow(Constants.SHOW_ID);
 
-  useEffect(() => {
-    setIsLoading(true);
-    getShow(6771)
-      .then(([resData, resError]) => {
-        if (resError) setHasError(true);
-        setShowData(resData || ({} as ShowProps));
-      })
-      .finally(() => setIsLoading(false));
-  }, []);
-
-  if (hasError) {
+  if (isError) {
     return <div>Something went wrong ...</div>;
   }
 
-  if (isLoading) {
+  if (isFetching) {
     return <div>Loading ...</div>;
   }
 
@@ -30,11 +18,19 @@ export const Home: React.FC = () => {
     <AboutShowSection>
       <div>
         <h1>About the Show</h1>
-        <p dangerouslySetInnerHTML={{ __html: showData?.summary }} />
+        <p dangerouslySetInnerHTML={{ __html: data?.summary || '' }} />
+
+        <p>
+          <b>Average Runtime:</b> {data?.averageRuntime} minutes
+        </p>
+
+        <p>
+          <b>Network:</b> {data?.network?.name}
+        </p>
       </div>
       <img
-        src={showData?.image?.original}
-        alt={`${showData?.name} Poster`}
+        src={data?.image?.original}
+        alt={`${data?.name} Poster`}
         className="show__banner"
       />
     </AboutShowSection>

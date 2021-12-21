@@ -19,4 +19,8 @@ export const AboutShowSection = styled.section`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
+
+  p + p {
+    margin-top: 1rem;
+  }
 `;
