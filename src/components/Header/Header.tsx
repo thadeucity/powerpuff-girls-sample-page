@@ -5,10 +5,15 @@ import { IState } from '../../store';
 import { changeTheme } from '../../store/modules/theme/actions';
 import { PossibleThemes } from '../../store/modules/theme/themeDTO';
 import { Modal } from '../Modal';
-import { HeaderContainer, ThemeModalContent } from './Header.styles';
+import {
+  HeaderContainer,
+  MobileMenuContent,
+  ThemeModalContent,
+} from './Header.styles';
 
 export const Header: React.FC = () => {
   const [isThemeModalOpen, setIsThemeModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -29,18 +34,50 @@ export const Header: React.FC = () => {
         <img src="./powerpuff_girls_logo.svg" alt="" className="show__logo" />
       </Link>
       <nav>
-        <Link to="/episodes">
+        <Link to="/episodes" className="desktop_only">
           <b className="hilight__button">Episodes</b>
         </Link>
 
         <button
           type="button"
-          className="hilight__button"
+          className="hilight__button desktop_only"
           onClick={() => setIsThemeModalOpen(true)}
         >
           Themes
         </button>
+
+        <button
+          type="button"
+          className="hilight__button mobile_only"
+          onClick={() => setIsMobileMenuOpen(true)}
+        >
+          Menu
+        </button>
       </nav>
+
+      <Modal
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      >
+        <MobileMenuContent>
+          <nav>
+            <Link to="/episodes" onClick={() => setIsMobileMenuOpen(false)}>
+              <b className="hilight__button">Episodes</b>
+            </Link>
+
+            <button
+              type="button"
+              className="hilight__button"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsThemeModalOpen(true);
+              }}
+            >
+              Themes
+            </button>
+          </nav>
+        </MobileMenuContent>
+      </Modal>
 
       <Modal
         isOpen={isThemeModalOpen}

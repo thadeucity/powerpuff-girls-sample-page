@@ -19,9 +19,21 @@ export const HeaderContainer = styled.header`
     width: 300px;
   }
 
+  .mobile_only {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     .show__logo {
       width: 225px;
+    }
+
+    .desktop_only {
+      display: none;
+    }
+
+    .mobile_only {
+      display: block;
     }
   }
 
@@ -102,5 +114,19 @@ export const ThemeModalContent = styled.div`
         background: var(--clr-primary);
       }
     }
+  }
+`;
+
+export const MobileMenuContent = styled.div`
+  width: 200px;
+
+  nav {
+    > * + * {
+      margin-top: 1rem;
+    }
+  }
+
+  button {
+    width: 100%;
   }
 `;
