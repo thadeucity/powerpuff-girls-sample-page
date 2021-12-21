@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-interface IoErrorProps {
+export interface IoErrorProps {
   status: number;
   message: string;
 }
