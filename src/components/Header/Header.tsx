@@ -9,7 +9,7 @@ export const Header: React.FC = () => (
     </Link>
     <nav>
       <Link to="/episodes">
-        <b>Episodes</b>
+        <b className="hilight__button">Episodes</b>
       </Link>
     </nav>
   </HeaderContainer>
