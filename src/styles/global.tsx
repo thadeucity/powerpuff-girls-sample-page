@@ -17,12 +17,16 @@ const DefaultStyles = createGlobalStyle<{ powerTheme: IThemeState }>`
   outline: 0;
   box-sizing: border-box;
   text-decoration: none;
+  border: 0;
+}
+
+body {
+  background: var(--clr-secondary);
 }
 
 body, input, button {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  background: var(--clr-secondary);
 }
 
 #root {
@@ -55,7 +59,7 @@ img[alt]:after {
 }
 
 .hilight__button {
-  font-size: 1.35rem;
+  font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
   color: #fff;
@@ -64,7 +68,7 @@ img[alt]:after {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
+  padding: 0.75em 1.5em;
   background: var(--clr-primary);
   border-radius: 0.75rem;
 
