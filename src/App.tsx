@@ -16,19 +16,19 @@ import { GlobalStyle } from './styles/global';
 
 function App() {
   return (
-    <ReduxProvider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <GlobalStyle />
-        <PortalsContainer>
-          <BrowserRouter>
+    <BrowserRouter>
+      <ReduxProvider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <GlobalStyle />
+          <PortalsContainer>
             <Header />
             <MainContainer>
               <Routes />
             </MainContainer>
-          </BrowserRouter>
-        </PortalsContainer>
-      </QueryClientProvider>
-    </ReduxProvider>
+          </PortalsContainer>
+        </QueryClientProvider>
+      </ReduxProvider>
+    </BrowserRouter>
   );
 }
 
