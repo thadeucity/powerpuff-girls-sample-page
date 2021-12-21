@@ -78,6 +78,18 @@ img[alt]:after {
     transform: scale(1.05);
   }
 }
+
+@media (max-width: 768px) {
+  .hilight__button {
+    font-size: 0.9325rem;
+  }
+}
+
+@media (max-width: 590px) {
+  .hilight__button {
+    font-size: 0.875rem;
+  }
+}
 `;
 
 export const GlobalStyle = () => {
